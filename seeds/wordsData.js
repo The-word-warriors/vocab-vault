@@ -1,6 +1,6 @@
-const { Vocab } = require("../models");
+const { Words } = require('../models');
 
-const vocabData = [
+const wordsData = [
   {
     word: "conspectus",
     definition: "A detailed survey or overview of a subject.",
@@ -31,4 +31,4 @@ const vocabData = [
 
 const seedWords = () =>  Words.bulkCreate(wordsData);
 
-module.exports = seedWords
+module.exports = seedWords;
