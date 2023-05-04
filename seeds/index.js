@@ -1,16 +1,16 @@
 const sequelize = require('../config/connection');
-const Dish = require('../models/Dish');
-const dishData = require('./dish-seeds.json');
+const seedUsers = require('./userData');
+const seedWords = require('./wordsData');
 
-const seedDatabase = async () => {
+const seedAll = async () => {
   await sequelize.sync({ force: true });
+ 
+  await seedUsers();
 
-  await Dish.bulkCreate(dishData, {
-    individualHooks: true,
-    returning: true,
-  });
+  await seedWords();
 
-  process.exit(0);
+
+  process.exit();
 };
 
-seedDatabase();
+seedAll();
