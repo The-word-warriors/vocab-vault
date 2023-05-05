@@ -1,26 +1,28 @@
-const { User } = require("../models");
+const User = require("../models/User");
+
+// const { models: { User } } = require('../models');
 
 
 
 const userData = [
   {
     username: "halima",
-    email: "halima@gmail.com",
+    email: "halima@email.com",
     password: "Password1",
   },
   {
     username: "matt",
-    email: "matt@gmail.com",
+    email: "matt@email.com",
     password: "Password1",
   },
   {
     username: "rachel",
-    email: "rachel@gmail.com",
+    email: "rachel@email.com",
     password: "Password1",
   },
   {
     username: "kar",
-    email: "kar@gmail.com",
+    email: "kar@email.com",
     password: "Password1",
   },
   {
@@ -30,7 +32,7 @@ const userData = [
   },
   {
     username: "Lernantino",
-    email: "lernantino@gmail.com",
+    email: "lernantino@email.com",
     password: "Password1",
   },
   {

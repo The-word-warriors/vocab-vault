@@ -1,4 +1,5 @@
-const { Words } = require('../models');
+const Words = require("../models/Words")
+// { models: { Words } } = require('../models');
 
 const wordsData = [
   {
