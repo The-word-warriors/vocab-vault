@@ -5,7 +5,7 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector('#password-login').value.trim();
 
   if (email && password) {
-    const response = await fetch('/', {
+    const response = await fetch('/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -13,7 +13,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       alert('you did it');
-      document.location.replace('/');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to log in.');
     }
@@ -30,7 +30,7 @@ const signupFormHandler = async (event) => {
   console.log(username, email, password);
 
   if (username && email && password) {
-    const response = await fetch('/', {
+    const response = await fetch('/signup', {
       method: 'POST',
       body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' }

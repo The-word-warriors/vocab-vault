@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   });
 
 // CREATE new user --> When signing up, we're saving new user info into database 
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
 });
 
 // Login
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
@@ -73,5 +73,12 @@ router.post('/', async (req, res) => {
 });
 
 //Dashboard route
+router.get('/dashboard', (req, res) => {
+  if (req.session.loggedIn) {
+    // res.redirect('/dashboard');
+    res.render('dashboard');
+    return;
+  }
+});
 
   module.exports = router;
