@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "seeds": "node seeds/index.js"
+    "seeds": "node seeds/index.js",
+    "start": "node server",
+    "dev": "nodemon server"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +21,7 @@
     "handlebars": "^4.7.3",
     "model": "^0.0.6",
     "mysql2": "^2.1.0",
+    "nodemon": "^2.0.22",
     "sequelize": "^6.31.1"
   }
 }
