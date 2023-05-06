@@ -6,7 +6,7 @@
 // }
 
 const urlSearchParams = new URLSearchParams(window.location.search);
-const email = urlSearchParams.get('email');
+const email = urlSearchParams.get("email");
 console.log(email);
 
 wordText = document.createElement("h3");
@@ -59,3 +59,13 @@ async function getAPI(event) {
 }
 
 document.querySelector(".word-search").addEventListener("submit", getAPI);
+
+// Function to clear word-info container
+function clearWordInfo() {
+  while (wordInfoContainer.firstChild) {
+    wordInfoContainer.removeChild(wordInfoContainer.firstChild);
+  }
+}
+// Add event listener to delete button
+const deleteButton = document.querySelector(".delete-btn");
+deleteButton.addEventListener("click", clearWordInfo);
