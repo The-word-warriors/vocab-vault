@@ -66,3 +66,6 @@ function clearWordInfo() {
     wordInfoContainer.removeChild(wordInfoContainer.firstChild);
   }
 }
+// Add event listener to delete button
+const deleteButton = document.querySelector(".delete-btn");
+deleteButton.addEventListener("click", clearWordInfo);
