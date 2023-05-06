@@ -5,6 +5,10 @@
 // console.log(searchedWord);
 // }
 
+const urlSearchParams = new URLSearchParams(window.location.search);
+const email = urlSearchParams.get('email');
+console.log(email);
+
 wordText = document.createElement("h3");
 definitionText = document.createElement("p");
 const wordInfoContainer = document.querySelector(".word-info");

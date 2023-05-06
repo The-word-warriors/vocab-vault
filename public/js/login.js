@@ -13,7 +13,8 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       alert('you did it');
-      document.location.replace('/dashboard');
+      document.location.replace(`/dashboard?email=${email}`);
+      // document.location.replace('/dashboard');
     } else {
       alert('Failed to log in.');
     }
