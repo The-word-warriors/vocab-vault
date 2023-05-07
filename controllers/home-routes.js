@@ -81,15 +81,18 @@ router.get('/dashboard', (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/dashboard/saved', async (req, res) => {
+  console.log(req.body)
   try {
     const savedWord = await SavedWord.create({
       word: req.body.word,
-      definitions: req.body.definitions,
-      user_email: req.body.email,
+      definitions: req.body.defString,
+      user_email: req.body.user_email,
     });
 
     res.status(201).json(savedWord);
+    res.render('dashboard');
+    
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to save word.' });
