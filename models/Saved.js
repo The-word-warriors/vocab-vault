@@ -2,9 +2,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class SavedWord extends Model { }
+class Saved extends Model { }
 
-SavedWord.init(
+Saved.init(
   {
     word: {
       type: DataTypes.STRING,
@@ -22,9 +22,9 @@ SavedWord.init(
   {
     sequelize,
     timestamps: true,
-    modelName: 'saved_word',
+    modelName: 'saved',
     underscored: true,
   }
 );
 
-module.exports = SavedWord;
+module.exports = Saved;
