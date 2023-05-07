@@ -18,7 +18,7 @@ Words.init(
         definition: {
             type: DataTypes.STRING,
             allowNull: true,
-        },     
+        },
     },
     {
         sequelize, // pass the Sequelize instance
@@ -26,7 +26,7 @@ Words.init(
         freezeTableName: true,
         underscored: true,
         modelName: 'words',
-      }
-    );
+    }
+);
 
-    module.exports = Words;
+module.exports = Words;
