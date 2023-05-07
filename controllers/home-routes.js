@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User');
-const SavedWord = require('../models/Saved.js');
+const Words = require('../models/Words');
+const Saved = require('../models/Saved');
 // Login route
 router.get('/', (req, res) => {
     // if (req.session.loggedIn) {
@@ -81,15 +82,15 @@ router.get('/dashboard', (req, res) => {
   }
 });
 
-router.post('/dashboard/saved', async (req, res) => {
+
+
+router.post('/saved', async (req, res) => {
   console.log(req.body)
   try {
-    const savedWord = await SavedWord.create({
+    const savedWord = await Saved.create({
       word: req.body.word,
-      definitions: req.body.defString,
-      user_email: req.body.user_email,
+      user_email: req.body.email,
     });
-
     res.status(201).json(savedWord);
     res.render('dashboard');
     

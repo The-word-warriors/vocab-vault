@@ -5,6 +5,7 @@
 // console.log(searchedWord);
 // }
 
+
 const urlSearchParams = new URLSearchParams(window.location.search);
 const email = urlSearchParams.get("email");
 console.log(email);
@@ -62,36 +63,38 @@ async function saveWord(event) {
   event.preventDefault();
 
   const word = wordText.textContent;
-  const definitions = Array.from(document.querySelectorAll('.word-info p')).map(
-    (p) => p.textContent.slice(3)
-  );
+  // const definitions = Array.from(document.querySelectorAll('.word-info p')).map(
+  //   (p) => p.textContent.slice(3)
+  // );
 
-  const response = await fetch('/models/saved', {
+  const response = await fetch('/saved', {
     method: 'POST',
-    body: JSON.stringify({ word, definitions, email }),
+    body: JSON.stringify({ word, email }),
     headers: { 'Content-Type': 'application/json' },
   });
 
   if (response.ok) {
-    const savedWord = await response.json();
+    alert('Word successfully saved');
+  } else {
+    alert('Failed to save word');
+  }
 
     // Append saved word to the page
-    const savedWordDiv = document.createElement('div');
-    const savedWordHeader = document.createElement('h3');
-    const savedWordList = document.createElement('ul');
+    // const savedWordDiv = document.createElement('div');
+    // const savedWordHeader = document.createElement('h3');
+    // const savedWordList = document.createElement('ul');
 
-    savedWordHeader.textContent = savedWord.word;
+    // savedWordHeader.textContent = savedWord.word;
 
-    savedWordList.innerHTML = savedWord.definitions
-      .map((definition) => `<li>${definition}</li>`)
-      .join('');
+    // savedWordList.innerHTML = savedWord.definitions
+    //   .map((definition) => `<li>${definition}</li>`)
+    //   .join('');
 
-    savedWordDiv.appendChild(savedWordHeader);
-    savedWordDiv.appendChild(savedWordList);
+    // savedWordDiv.appendChild(savedWordHeader);
+    // savedWordDiv.appendChild(savedWordList);
 
-    document.querySelector('.saved-words').appendChild(savedWordDiv);
-  }
-}
+    // document.querySelector('.saved-words').appendChild(savedWordDiv);
+  };
 
 document.querySelector('.save-button').addEventListener('click', saveWord);
 

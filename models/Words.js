@@ -15,10 +15,10 @@ Words.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        definition: {
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
+        // definition: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true,
+        // },
     },
     {
         sequelize, // pass the Sequelize instance
