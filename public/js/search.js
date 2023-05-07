@@ -75,9 +75,12 @@ async function saveWord(event) {
 
   if (response.ok) {
     alert('Word successfully saved');
+    location.reload();
   } else {
     alert('Failed to save word');
   }
+
+
 
     // Append saved word to the page
     // const savedWordDiv = document.createElement('div');

@@ -13,6 +13,15 @@
     </div>
 <div class ="word-info">
 
+
 </div>
 
+    <div class='saved-words'>
+  {{#each savedWords as |saved|}}
+    <div class='blog-post'>
+      <h2>{{saved.word}}</h2>
+    </div>
+</div>
+  {{/each}}
+  
 <script src="./js/search.js"></script>

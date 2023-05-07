@@ -58,6 +58,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.email = req.body.email;
       console.log(
         '🚀 ~ file: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
         req.session.cookie
@@ -74,13 +75,34 @@ router.post('/login', async (req, res) => {
 });
 
 //Dashboard route
-router.get('/dashboard', (req, res) => {
-  if (req.session.loggedIn) {
-    // res.redirect('/dashboard');
-    res.render('dashboard');
-    return;
+// router.get('/dashboard', (req, res) => {
+//   if (req.session.loggedIn) {
+//     // res.redirect('/dashboard');
+//     Saved.findAll({
+//       attributes: ['word'],
+//       where: {
+//         user_email: urlSearchParams.get("email"),
+//       }
+//     })
+//     res.render('dashboard');
+//     return;
+//   }
+// });
+
+//GET request to render words to webpage
+router.get('/dashboard', async (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.redirect('/');
   }
-});
+
+  const wordData = await Saved.findAll().catch((err) => { 
+    res.json(err);
+  });
+    const savedWords = wordData.map((post) => post.get({ plain: true }));
+    // console.log("hello", blogPosts);
+    res.render('dashboard', { savedWords });
+  });
+
 
 
 
