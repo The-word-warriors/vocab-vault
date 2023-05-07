@@ -58,6 +58,44 @@ async function getAPI(event) {
   };
 }
 
+async function saveWord(event) {
+  event.preventDefault();
+
+  const word = wordText.textContent;
+  const definitions = Array.from(document.querySelectorAll('.word-info p')).map(
+    (p) => p.textContent.slice(3)
+  );
+
+  const response = await fetch('/models/saved', {
+    method: 'POST',
+    body: JSON.stringify({ word, definitions, email }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    const savedWord = await response.json();
+
+    // Append saved word to the page
+    const savedWordDiv = document.createElement('div');
+    const savedWordHeader = document.createElement('h3');
+    const savedWordList = document.createElement('ul');
+
+    savedWordHeader.textContent = savedWord.word;
+
+    savedWordList.innerHTML = savedWord.definitions
+      .map((definition) => `<li>${definition}</li>`)
+      .join('');
+
+    savedWordDiv.appendChild(savedWordHeader);
+    savedWordDiv.appendChild(savedWordList);
+
+    document.querySelector('.saved-words').appendChild(savedWordDiv);
+  }
+}
+
+document.querySelector('.save-button').addEventListener('click', saveWord);
+
+
 document.querySelector(".word-search").addEventListener("submit", getAPI);
 
 // Function to clear word-info container
