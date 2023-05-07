@@ -6,11 +6,13 @@ class Saved extends Model { }
 
 Saved.init(
   {
-    word: {
-      type: DataTypes.STRING,
+    id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    definitions: {
+    word: {
       type: DataTypes.STRING,
       allowNull: false,
     },

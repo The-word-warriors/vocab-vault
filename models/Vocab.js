@@ -1,12 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const User = require('./User'); // import User model
+const Word = require('./Words'); // import Word model
 
-class Vocab extends Model {
-    checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password);
-    }
-}
+class Vocab extends Model { }
 
 Vocab.init(
     {
@@ -33,4 +30,13 @@ Vocab.init(
             }
         },
     },
+    {
+        sequelize, // pass the Sequelize instance
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'vocab',
+    }
 );
+
+module.exports = { Vocab };
