@@ -3,7 +3,7 @@
 
 :root {
   --primary: #389393;
-  --secondary: #f5a25d;
+  --secondary: #E3EFFF;
   --tertiary: #fa7f72;
   --quatrinary: #6c6b67;
   --light: #ebebeb;
@@ -19,13 +19,13 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background-color: var(--quatrinary);
+  background-color: rgb(227,239,255);
 }
 
 header {
-  padding: 40px;
+  padding: 60px;
   text-align: center;
-  background: var(--primary);
+  background: rgb(0,74,173);
   color: var(--secondary);
   border-bottom-style: solid;
 }
