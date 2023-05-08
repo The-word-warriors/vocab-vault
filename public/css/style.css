@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
  
-
 :root {
   --primary: #389393;
-  --secondary: #E3EFFF;
+  --secondary: #ffff;
   --tertiary: #fa7f72;
   --quatrinary: #6c6b67;
   --light: #ebebeb;
@@ -19,13 +18,27 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background-color: rgb(227,239,255);
+  /* background-color: #ffff); */
+  background-image: #ffff;
+}
+
+
+.login- {
+justify-content: space-between;
+}
+
+.page-title {
+  color:#004AAD
+}
+
+.form-group {
+  color:#004AAD
 }
 
 header {
   padding: 60px;
   text-align: center;
-  background: rgb(0,74,173);
+  background-image: linear-gradient(#5DE0E6, #004AAD);
   color: var(--secondary);
   border-bottom-style: solid;
 }
@@ -169,3 +182,6 @@ nav {
   flex-flow: column wrap;
   align-items: center;
 }
+
+
+
