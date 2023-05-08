@@ -14,7 +14,7 @@ definitionText = document.createElement("p");
 const wordInfoContainer = document.querySelector(".word-info");
 
 //Function that returns search word
-async function getAPI(event) {
+async function getAPI(event, clickedWord) {
   event.preventDefault();
 
   // Resets the word and definition everytime a word is searched. Remove all child elements of the word-info container
@@ -22,7 +22,7 @@ async function getAPI(event) {
     wordInfoContainer.removeChild(wordInfoContainer.firstChild);
   }
 
-  const searchedWord = document.querySelector(".word-input").value.trim();
+  const searchedWord = clickedWord || document.querySelector(".word-input").value.trim();
 
   const response = await fetch(
     `https://api.dictionaryapi.dev/api/v2/entries/en/${searchedWord}`
@@ -107,8 +107,6 @@ deleteButtons.forEach(button => {
     const savedWord = parentDiv.querySelector('.saved-word');
     // Get the text content of the saved word
     const savedWordText = savedWord.textContent;
-    // Do something with the saved word, such as delete it from a database or remove it from the DOM
-    console.log('Deleting saved word:', savedWordText);
 
     const response = await fetch('/delete', {
       method: 'DELETE',
@@ -125,3 +123,14 @@ deleteButtons.forEach(button => {
     
   });
 });
+
+//Add function so that when a word is clicked, the definition shows up 
+const vaultWords = document.querySelectorAll('.saved-word');
+vaultWords.forEach(word => {
+  word.addEventListener('click', (event) => {
+    const clickedWord = event.target.textContent;
+    console.log(`The clicked word is "${clickedWord}".`);
+    getAPI(event, clickedWord); 
+  });
+});
+
