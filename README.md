@@ -37,7 +37,7 @@ To view your saved words, click the "Saved Words" button on the pag
 ## Links
 https://github.com/The-word-warriors/vocab-vault
 
-https://morning-beach-80002.herokuapp.com/
+https://dashboard.heroku.com/apps/vocab-vault-0523
 
 ## Credits
 
