@@ -111,5 +111,22 @@ router.post('/saved', async (req, res) => {
   }
 });
 
+//DELETE request to delete word from database
+router.delete('/delete', async (req, res) => {
+  console.log(req.body)
+  try {
+    const deletedWord = await Saved.destroy({
+      where: {
+        word: req.body.savedWordText,
+      }
+    });
+    res.status(201).json(deletedWord);
+    res.render('dashboard');
+    
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to delete word.' });
+  }
+});
 
   module.exports = router;

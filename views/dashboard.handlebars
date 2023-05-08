@@ -16,12 +16,13 @@
 
 </div>
 
-    <div class='saved-words'>
+    <div class='vocab-vault'>
   {{#each savedWords as |saved|}}
-    <div class='blog-post'>
-      <h2>{{saved.word}}</h2>
+    <div class='word-card'>
+      <h2 class='saved-word'>{{saved.word}}</h2>
+      <button class="delete-button">Delete</button>
     </div>
 </div>
   {{/each}}
-  
+
 <script src="./js/search.js"></script>
