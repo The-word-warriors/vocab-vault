@@ -5,7 +5,6 @@
 // console.log(searchedWord);
 // }
 
-
 const urlSearchParams = new URLSearchParams(window.location.search);
 const email = urlSearchParams.get("email");
 console.log(email);
@@ -59,13 +58,11 @@ async function getAPI(event) {
   };
 }
 
+//Function to saved a word when Add to Vault button is clicked
 async function saveWord(event) {
   event.preventDefault();
 
   const word = wordText.textContent;
-  // const definitions = Array.from(document.querySelectorAll('.word-info p')).map(
-  //   (p) => p.textContent.slice(3)
-  // );
 
   const response = await fetch('/saved', {
     method: 'POST',
@@ -75,30 +72,17 @@ async function saveWord(event) {
 
   if (response.ok) {
     alert('Word successfully saved');
+    location.reload();
   } else {
     alert('Failed to save word');
   }
-
-    // Append saved word to the page
-    // const savedWordDiv = document.createElement('div');
-    // const savedWordHeader = document.createElement('h3');
-    // const savedWordList = document.createElement('ul');
-
-    // savedWordHeader.textContent = savedWord.word;
-
-    // savedWordList.innerHTML = savedWord.definitions
-    //   .map((definition) => `<li>${definition}</li>`)
-    //   .join('');
-
-    // savedWordDiv.appendChild(savedWordHeader);
-    // savedWordDiv.appendChild(savedWordList);
-
-    // document.querySelector('.saved-words').appendChild(savedWordDiv);
   };
 
+
+//Initiates saveWord function when "Add to Vault" button is clicked 
 document.querySelector('.save-button').addEventListener('click', saveWord);
 
-
+//Initiates getting word definition getAPI function when "Search" button is clicked 
 document.querySelector(".word-search").addEventListener("submit", getAPI);
 
 // Function to clear word-info container
@@ -106,7 +90,38 @@ function clearWordInfo() {
   while (wordInfoContainer.firstChild) {
     wordInfoContainer.removeChild(wordInfoContainer.firstChild);
   }
-}
-// Add event listener to delete button
+};
+
+// Add event listener to Clear button
 const deleteButton = document.querySelector(".delete-btn");
 deleteButton.addEventListener("click", clearWordInfo);
+
+
+//DELETE word from vault
+const deleteButtons = document.querySelectorAll('.delete-button');
+deleteButtons.forEach(button => {
+  button.addEventListener('click', async function() {
+    // Find the parent div of the delete button
+    const parentDiv = this.closest('.word-card');
+    // Find the saved word element within the parent div
+    const savedWord = parentDiv.querySelector('.saved-word');
+    // Get the text content of the saved word
+    const savedWordText = savedWord.textContent;
+    // Do something with the saved word, such as delete it from a database or remove it from the DOM
+    console.log('Deleting saved word:', savedWordText);
+
+    const response = await fetch('/delete', {
+      method: 'DELETE',
+      body: JSON.stringify({ savedWordText }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+  
+    if (response.ok) {
+      alert('Word successfully deleted');
+      location.reload();
+    } else {
+      alert('Failed to delete word');
+    }
+    
+  });
+});

@@ -58,6 +58,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.email = req.body.email;
       console.log(
         '🚀 ~ file: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
         req.session.cookie
@@ -73,17 +74,27 @@ router.post('/login', async (req, res) => {
   }
 });
 
-//Dashboard route
-router.get('/dashboard', (req, res) => {
-  if (req.session.loggedIn) {
-    // res.redirect('/dashboard');
-    res.render('dashboard');
-    return;
+
+//GET request to render words to webpage
+router.get('/dashboard', async (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.redirect('/');
   }
-});
+
+  const wordData = await Saved.findAll({
+    where: {
+      user_email: req.session.email
+    }
+  }).catch((err) => { 
+    res.json(err);
+  });
+    const savedWords = wordData.map((post) => post.get({ plain: true }));
+    res.render('dashboard', { savedWords });
+  });
 
 
 
+//POST request to save word to database
 router.post('/saved', async (req, res) => {
   console.log(req.body)
   try {
@@ -100,5 +111,22 @@ router.post('/saved', async (req, res) => {
   }
 });
 
+//DELETE request to delete word from database
+router.delete('/delete', async (req, res) => {
+  console.log(req.body)
+  try {
+    const deletedWord = await Saved.destroy({
+      where: {
+        word: req.body.savedWordText,
+      }
+    });
+    res.status(201).json(deletedWord);
+    res.render('dashboard');
+    
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to delete word.' });
+  }
+});
 
   module.exports = router;
