@@ -18,22 +18,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  /* background-color: #ffff); */
-  background-image: #ffff;
-}
-
-
-.login- {
-justify-content: space-between;
-padding: 50px;
-}
-
-.page-title {
-  color:#004AAD
-}
-
-.form-group {
-  color:#004AAD
+  background-color: rgb(227,239,255);
 }
 
 header {
@@ -183,3 +168,6 @@ nav {
   flex-flow: column wrap;
   align-items: center;
 }
+
+
+
