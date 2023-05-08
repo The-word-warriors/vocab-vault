@@ -38,6 +38,18 @@ main {
 .search-bar {
   display: flex;
   text-align: center;
+  padding:20px;
+}
+
+.word-input {
+border-radius: 10px;
+text-align: center;
+padding: 10px
+}
+
+.button-1 {
+  padding: 10px;
+  text-align: center;
 }
 
 aside {
