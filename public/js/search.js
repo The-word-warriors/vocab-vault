@@ -64,10 +64,10 @@ async function saveWord(event) {
   });
 
   if (response.ok) {
-    alert('Word successfully saved');
+    // alert('Word successfully saved');
     location.reload();
   } else {
-    alert('Failed to save word');
+    // alert('Failed to save word');
   }
   };
 
@@ -108,10 +108,10 @@ deleteButtons.forEach(button => {
     });
   
     if (response.ok) {
-      alert('Word successfully deleted');
+      // alert('Word successfully deleted');
       location.reload();
     } else {
-      alert('Failed to delete word');
+      // alert('Failed to delete word');
     }
     
   });
