@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
- 
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+
 :root {
   --primary: #389393;
   --secondary: #ffff;
@@ -12,19 +12,19 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background-color: rgb(227,239,255);
+  background-color: rgb(227, 239, 255);
 }
 
 header {
   padding: 60px;
   text-align: center;
-  background-image: linear-gradient(#5DE0E6, #004AAD);
+  background-image: linear-gradient(#5de0e6, #004aad);
   color: var(--secondary);
   border-bottom-style: solid;
 }
@@ -46,13 +46,13 @@ main {
 .search-bar {
   display: flex;
   text-align: center;
-  padding:20px;
+  padding: 20px;
 }
 
 .word-input {
-border-radius: 10px;
-text-align: center;
-padding: 10px
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
 }
 
 .button-1 {
@@ -60,6 +60,26 @@ padding: 10px
   text-align: center;
 }
 
+.button-2 {
+  padding: 10;
+}
+
+.info-box {
+  background-color: rgb(225, 235, 251);
+  padding: 10px;
+  min-width: 800px;
+  height: 400px;
+  word-wrap: normal;
+  overflow: scroll;
+}
+
+h3 {
+  color: #004aad;
+}
+
+p {
+  color: rgb(29, 144, 239);
+}
 aside {
   flex: 0;
   background-color: var(--tertiary);
@@ -188,6 +208,3 @@ nav {
   flex-flow: column wrap;
   align-items: center;
 }
-
-
-
