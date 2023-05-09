@@ -14,18 +14,25 @@
     <button class="save-button">Add to Vault</button>
 </div>
 </section>
-<div class="info-box">
-<div class ="word-info">
-</div>
-</div>
 
-    <div class='vocab-vault'>
-  {{#each savedWords as |saved|}}
-    <div class='word-card'>
-      <h2 class='saved-word'>{{saved.word}}</h2>
-      <button class="delete-button">Delete</button>
-    </div>
-</div>
-  {{/each}}
+<container class="main">
+    <container class="left-column">
+          <div class="info-box">
+          <div class ="word-info">
+          </div>
+          </div>
+    </container>
+
+    <container class="right-column">
+          <div class='vocab-vault'>
+        {{#each savedWords as |saved|}}
+          <div class='word-card'>
+            <h2 class='saved-word'>{{saved.word}}</h2>
+            <button class="delete-button">Delete</button>
+          </div>
+      </div>
+        {{/each}}
+    </container>
+</container>
 
 <script src="./js/search.js"></script>
