@@ -12,11 +12,20 @@
       <h1>
         VOCAB VAULT
       </h1>
+    {{#if loggedIn}}
+    <button class="logout-button">Logout</button>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
     </header>
     <main class="container">
       {{{ body }}}
     </main>
   </div>
+
+    {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>

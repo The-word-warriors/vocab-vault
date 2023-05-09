@@ -89,7 +89,8 @@ router.get('/dashboard', async (req, res) => {
     res.json(err);
   });
     const savedWords = wordData.map((post) => post.get({ plain: true }));
-    res.render('dashboard', { savedWords });
+    const loggedIn = true;
+    res.render('dashboard', { savedWords, loggedIn });
   });
 
 
@@ -126,6 +127,17 @@ router.delete('/delete', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to delete word.' });
+  }
+});
+
+// Logout
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
