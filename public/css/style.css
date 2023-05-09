@@ -33,6 +33,14 @@ main {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
+  padding: 50px;
+}
+
+.login- {
+  padding: 20px;
+  margin: 20px;
+  justify-content: center;
+  align-content: center;
 }
 
 .search-bar {
