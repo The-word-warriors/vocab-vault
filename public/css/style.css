@@ -36,11 +36,19 @@ header {
   padding: 50px;
 } */
 
+.container {
+  max-width: 100%;
+}
+
 .login- {
   padding: 20px;
   margin: 20px;
   justify-content: center;
   align-content: center;
+}
+
+.row {
+  justify-content: center;
 }
 
 .search-bar {
@@ -49,12 +57,26 @@ header {
   padding: 20px;
 }
 
+.save-delete-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .main {
   display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+
+}
+
+.word-info {
+  width: 600px;
 }
 
 .vocab-vault {
-  width: 45%;
+  width: 600px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -97,7 +119,7 @@ header {
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  width: 100%;
+  max-width: 200px;
 }
 
 .word-card {
@@ -140,7 +162,7 @@ header {
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  width: 100%;
+  width: 200px;
 }
 
 .delete-button {
@@ -180,11 +202,12 @@ header {
 
 .info-box {
   background-color: rgb(225, 235, 251);
-  padding: 10px;
-  min-width: 400px;
-  height: 400px;
+  /* padding: 10px; */
+  width: 45%;;
+  /* min-width: 400px;
+  height: 400px; */
   word-wrap: normal;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 h3 {
