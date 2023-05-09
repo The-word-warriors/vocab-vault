@@ -1,38 +1,40 @@
-
-
 <div class="search-bar">
-    <form class="word-search">
-        <input class="word-input" type="search" placeholder="  &#x1F50E    Start typing to look up a word !" size="45">
-        {{!-- <button class="search-button" type="submit">Search</button> --}}
-    </form>
+  <form class="word-search">
+    <input
+      class="word-input"
+      type="search"
+      placeholder="  &#x1F50E    Start typing to look up a word !"
+      size="45"
+    />
+    {{! <button class="search-button" type="submit">Search</button> }}
+  </form>
 </div>
 <section class="save-delete-buttons">
-    <div class="button-1">
-      <button class="delete-btn">Clear</button>
-    </div>
-<div class="button-2">
+  <div class="button-1">
+    <button class="delete-btn">Clear</button>
+  </div>
+  <div class="button-2">
     <button class="save-button">Add to Vault</button>
-</div>
+  </div>
 </section>
 
-<container class="main">
-    <container class="left-column">
-          <div class="info-box">
-          <div class ="word-info">
-          </div>
-          </div>
-    </container>
-
-    <container class="right-column">
-          <div class='vocab-vault'>
-        {{#each savedWords as |saved|}}
-          <div class='word-card'>
-            <h2 class='saved-word'>{{saved.word}}</h2>
-            <button class="delete-button">Delete</button>
-          </div>
+<container class="main-column">
+  <container class="left-column">
+    <div class="info-box">
+      <div class="word-info">
       </div>
-        {{/each}}
-    </container>
+    </div>
+  </container>
+
+  <div class="vocab-vault">
+    {{#each savedWords as |saved|}}
+      <div class="word-card">
+        <h2 class="saved-word">{{saved.word}}</h2>
+        <button class="delete-button">Delete</button>
+      </div>
+    {{/each}}
+  </div>
+
 </container>
 
 <script src="./js/search.js"></script>

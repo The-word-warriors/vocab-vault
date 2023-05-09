@@ -49,12 +49,6 @@ main {
   padding: 20px;
 }
 
-.main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 .word-input {
   border-radius: 10px;
   text-align: center;
@@ -140,11 +134,11 @@ main {
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.8px;
-  line-height: 20px;
+  /* line-height: 20px; */
   margin: 0;
   outline: none;
-  overflow: visible;
-  padding: 13px 16px;
+  /*overflow: visible;
+  padding: 13px 16px;*/
   text-align: center;
   text-transform: uppercase;
   touch-action: manipulation;
@@ -168,6 +162,60 @@ main {
   height: 400px;
   word-wrap: normal;
   overflow: scroll;
+}
+
+.main-column {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .vocab-vault {
+  width: 45%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+} */
+
+.word-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-transform: capitalize;
+  margin: 2px;
+  background-color: rgb(195, 218, 255);
+  padding: 10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  word-wrap: normal;
+  overflow: scroll;
+}
+
+/* .vocab-vault {
+  width: 45%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.word-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  margin: 2px;
+  max-height: 75px;
+  padding: 25px;
+} */
+
+.delete-button {
+  height: 25px;
+  width: 100px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-around;
 }
 
 h3 {
