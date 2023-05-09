@@ -86,7 +86,7 @@ function clearWordInfo() {
 };
 
 // Add event listener to Clear button
-const deleteButton = document.querySelector(".delete-btn");
+const deleteButton = document.querySelector(".clear-btn");
 deleteButton.addEventListener("click", clearWordInfo);
 
 
