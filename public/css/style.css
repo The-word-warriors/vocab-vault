@@ -78,7 +78,7 @@ header {
 .vocab-vault {
   width: 600px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
@@ -125,13 +125,20 @@ header {
 .word-card {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   /* column-gap: 20px; */
   background-color: white;
   margin: 2px;
+  border-radius: 16px;
   max-height: 75px;
+
   padding: 25px;
+}
+
+.saved-word {
+  margin-right: 4px;
 }
 
 .clear-btn {
@@ -170,20 +177,19 @@ header {
   background-color: #1899d6;
   border: solid transparent;
   border-radius: 16px;
-  border-width: 0 0 4px;
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-family: din-round, sans-serif;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 20px;
   margin: 0;
   outline: none;
   overflow: visible;
-  padding: 3px 4px;
+  padding: 4px;
   text-align: center;
   text-transform: uppercase;
   touch-action: manipulation;
@@ -193,7 +199,7 @@ header {
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  width: 50%;
+  width: 50px;
 }
 
 .button-2 {
@@ -230,112 +236,5 @@ nav {
   background-color: var(--secondary);
 }
 
-.menu-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 75%;
-  min-height: 100%;
-  margin: 0px auto;
-  border: 3px solid var(--primary);
-  border-radius: var(--border-radius);
-  border-style: solid;
-  border-width: medium;
-  background-color: var(--light);
-  color: var(--dark);
-  padding: 50px;
-  background-color: #ebebeb;
-}
 
-.add-dish-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 50%;
-  min-width: 35%;
-  margin: 5px auto;
-  border: 3px solid var(--primary);
-  border-radius: var(--border-radius);
-  border-style: solid;
-  border-width: medium;
-  background-color: var(--light);
-  color: var(--dark);
-  padding: 5px;
-  text-align: center;
-  background-color: var(--tertiary);
-}
-
-.edit-dish-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 35%;
-  min-height: 100%;
-  min-width: 35%;
-  margin: 5px auto;
-  border: 3px solid var(--primary);
-  border-radius: var(--border-radius);
-  border-style: solid;
-  border-width: medium;
-  background-color: var(--light);
-  color: var(--dark);
-  padding: 50px;
-  text-align: center;
-  background-color: var(--tertiary);
-}
-
-/* CARDS */
-.dish-card {
-  margin: 20px;
-  flex: 0 1 300px;
-  padding: 5px;
-  width: 35%;
-  min-height: 100%;
-  min-width: 35%;
-  border: 3px solid var(--primary);
-  border-radius: var(--border-radius);
-  border-style: solid;
-  border-width: medium;
-  background-color: var(--light);
-  color: var(--dark);
-}
-
-.menu-card {
-  margin: 50px;
-  flex: 0 1 300px;
-  padding: 5px;
-  border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
-  border-style: groove;
-  border-width: thick;
-  background-color: var(--light);
-  color: var(--dark);
-}
-
-.card-header {
-  color: var(--light);
-  margin: 0;
-  background-color: var(--secondary);
-  padding: 0.625rem;
-  border: 3px solid var(--primary);
-  border-radius: var(--border-radius);
-  border-style: solid;
-  border-width: medium;
-}
-
-.has-nuts {
-  color: var(--error);
-}
-
-.dish-card-header {
-  font-size: 1.5rem;
-  color: var(--tertiary);
-  margin: 0;
-  background-color: var(--light);
-  padding: 0.625rem;
-  border-bottom-style: solid;
-}
-
-.card-body {
-  padding: 2.5%;
-  font-size: 1.4rem;
-  text-align: center;
-}
 
