@@ -1,10 +1,3 @@
-// Prints the searched word to console log
-// const searchWord = async (event) => {
-//   event.preventDefault();
-//   const searchedWord = document.querySelector('.word-input').value.trim();
-// console.log(searchedWord);
-// }
-
 const urlSearchParams = new URLSearchParams(window.location.search);
 const email = urlSearchParams.get("email");
 console.log(email);
@@ -70,12 +63,12 @@ async function saveWord(event) {
     headers: { 'Content-Type': 'application/json' },
   });
 
-  if (response.ok) {
-    alert('Word successfully saved');
-    location.reload();
-  } else {
-    alert('Failed to save word');
-  }
+  // if (response.ok) {
+  //   alert('Word successfully saved');
+  //   location.reload();
+  // } else {
+  //   alert('Failed to save word');
+  // }
   };
 
 
@@ -114,12 +107,12 @@ deleteButtons.forEach(button => {
       headers: { 'Content-Type': 'application/json' },
     });
   
-    if (response.ok) {
-      alert('Word successfully deleted');
-      location.reload();
-    } else {
-      alert('Failed to delete word');
-    }
+    // if (response.ok) {
+    //   alert('Word successfully deleted');
+    //   location.reload();
+    // } else {
+    //   alert('Failed to delete word');
+    // }
     
   });
 });
