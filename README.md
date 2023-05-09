@@ -37,7 +37,7 @@ To view your saved words, click the "Saved Words" button on the pag
 ## Links
 https://github.com/The-word-warriors/vocab-vault
 
-https://dashboard.heroku.com/apps/vocab-vault-0523
+https://vocab-vault-0523.herokuapp.com/
 
 ## Credits
 
