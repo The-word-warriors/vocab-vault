@@ -202,6 +202,10 @@ header {
   width: 50px;
 }
 
+.logout-button {
+  float: right;
+}
+
 .button-2 {
   padding: 10;
 }

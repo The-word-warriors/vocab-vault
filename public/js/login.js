@@ -38,7 +38,8 @@ const signupFormHandler = async (event) => {
     });
     console.log(response);
     if (response.ok) {
-      location.reload();
+      alert('you did it');
+      document.location.replace(`/dashboard?email=${email}`);
     } else {
       alert('Failed to sign up.');
     }
