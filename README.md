@@ -32,7 +32,9 @@ To view your saved words, click the "Saved Words" button on the pag
 
 ## Screenshots
 
+![ this is the login and sign up page](./assets/vocab-vault-login.jpg)
 
+![ this is the dashboard page](./assets/vocab-vault.jpg)
 
 ## Links
 https://github.com/The-word-warriors/vocab-vault
