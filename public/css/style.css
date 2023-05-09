@@ -49,6 +49,12 @@ main {
   padding: 20px;
 }
 
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .word-input {
   border-radius: 10px;
   text-align: center;
@@ -158,7 +164,7 @@ main {
 .info-box {
   background-color: rgb(225, 235, 251);
   padding: 10px;
-  min-width: 800px;
+  min-width: 400px;
   height: 400px;
   word-wrap: normal;
   overflow: scroll;

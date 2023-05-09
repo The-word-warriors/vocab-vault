@@ -63,12 +63,12 @@ async function saveWord(event) {
     headers: { 'Content-Type': 'application/json' },
   });
 
-  // if (response.ok) {
-  //   alert('Word successfully saved');
-  //   location.reload();
-  // } else {
-  //   alert('Failed to save word');
-  // }
+  if (response.ok) {
+    alert('Word successfully saved');
+    location.reload();
+  } else {
+    alert('Failed to save word');
+  }
   };
 
 
@@ -107,12 +107,12 @@ deleteButtons.forEach(button => {
       headers: { 'Content-Type': 'application/json' },
     });
   
-    // if (response.ok) {
-    //   alert('Word successfully deleted');
-    //   location.reload();
-    // } else {
-    //   alert('Failed to delete word');
-    // }
+    if (response.ok) {
+      alert('Word successfully deleted');
+      location.reload();
+    } else {
+      alert('Failed to delete word');
+    }
     
   });
 });
