@@ -68,6 +68,7 @@ async function saveWord(event) {
     location.reload();
   } else {
     // alert('Failed to save word');
+    location.reload();
   }
   };
 
@@ -112,6 +113,7 @@ deleteButtons.forEach(button => {
       location.reload();
     } else {
       // alert('Failed to delete word');
+      location.reload();
     }
     
   });
