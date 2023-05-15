@@ -74,6 +74,51 @@ router.post('/login', async (req, res) => {
   }
 });
 
+//GET request after first signing up
+router.get('/newuser', async (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.redirect('/');
+  }
+    const loggedIn = true;
+    res.render('dashboard', { loggedIn });
+  });
+
+
+
+
+  
+  //POST request to save word to database
+  // router.post('/saved', async (req, res) => {
+  //   console.log(req.body)
+  //   try {
+  //     const savedWord = await Saved.create({
+  //       word: req.body.word,
+  //       user_email: req.body.email,
+  //     });
+  //     res.status(201).json(savedWord);
+      
+  //   } catch (err) {
+  //     console.error(err);
+  //     res.status(500).json({ error: 'Failed to save word.' });
+  //   }
+  // });
+
+  // POST request to save word to database
+router.post('/saved', async (req, res) => {
+  console.log(req.body);
+  try {
+    const savedWord = await Saved.create({
+      word: req.body.word,
+      user_email: req.body.email,
+    });
+    // Redirect to dashboard with email query parameter
+    res.redirect(`/dashboard?email=${req.body.email}`);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to save word.' });
+  }
+});
+
 
 //GET request to render words to webpage
 router.get('/dashboard', async (req, res) => {
@@ -81,36 +126,21 @@ router.get('/dashboard', async (req, res) => {
     return res.redirect('/');
   }
 
-  const wordData = await Saved.findAll({
+  const savedWords = await Saved.findAll({
     where: {
       user_email: req.session.email
     }
   }).catch((err) => { 
     res.json(err);
   });
-    const savedWords = wordData.map((post) => post.get({ plain: true }));
+    // const savedWords = wordData.map((post) => post.get({ plain: true }));
     const loggedIn = true;
+    console.log(savedWords);
     res.render('dashboard', { savedWords, loggedIn });
   });
 
 
 
-//POST request to save word to database
-router.post('/saved', async (req, res) => {
-  console.log(req.body)
-  try {
-    const savedWord = await Saved.create({
-      word: req.body.word,
-      user_email: req.body.email,
-    });
-    res.status(201).json(savedWord);
-    res.render('dashboard');
-    
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to save word.' });
-  }
-});
 
 //DELETE request to delete word from database
 router.delete('/delete', async (req, res) => {
