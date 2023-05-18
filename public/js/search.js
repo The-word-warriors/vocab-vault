@@ -51,29 +51,6 @@ async function getAPI(event, clickedWord) {
   };
 }
 
-//Function to saved a word when Add to Vault button is clicked
-// async function saveWord(event) {
-//   event.preventDefault();
-
-//   const word = wordText.textContent;
-
-//   const response = await fetch('/saved', {
-//     method: 'POST',
-//     body: JSON.stringify({ word, email }),
-//     headers: { 'Content-Type': 'application/json' },
-//   });
-
-//   if (response.ok) {
-//     alert('Word successfully saved');
-//     // location.reload();
-//     document.location.replace(`/dashboard?email=${email}`);
-//   } else {
-//     alert('Failed to save word');
-//     // location.reload();
-//     document.location.replace(`/dashboard?email=${email}`);
-//   }
-//   };
-
 // Function to save a word when Add to Vault button is clicked
 async function saveWord(event) {
   event.preventDefault();
@@ -87,8 +64,7 @@ async function saveWord(event) {
   });
 
   if (response.ok) {
-    // Word successfully saved, redirect to dashboard
-    alert('Word successfully saved');
+    // alert('Word successfully saved');
     document.location.replace(`/dashboard?email=${email}`);
   } else {
     console.error('Failed to save word');
