@@ -51,7 +51,7 @@ async function getAPI(event, clickedWord) {
   };
 }
 
-//Function to saved a word when Add to Vault button is clicked
+// Function to save a word when Add to Vault button is clicked
 async function saveWord(event) {
   event.preventDefault();
 
@@ -65,12 +65,12 @@ async function saveWord(event) {
 
   if (response.ok) {
     // alert('Word successfully saved');
-    location.reload();
+    document.location.replace(`/dashboard?email=${email}`);
   } else {
-    // alert('Failed to save word');
-    location.reload();
+    console.error('Failed to save word');
   }
-  };
+};
+
 
 
 //Initiates saveWord function when "Add to Vault" button is clicked 

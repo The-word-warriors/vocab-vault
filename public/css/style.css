@@ -41,10 +41,19 @@ header {
 }
 
 .login- {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   padding: 20px;
   margin: 20px;
+  max-width: 334px;
   justify-content: center;
   align-content: center;
+}
+
+.thanks-message {
+  text-align: center;
+  font-weight: bold;
 }
 
 .row {

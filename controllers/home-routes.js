@@ -11,6 +11,15 @@ router.get('/', (req, res) => {
     res.render('login');
   });
 
+  // Login AFTER SIGNUP route
+router.get('/login', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+  res.render('loginAFTERSIGNUP');
+});
+
 // CREATE new user --> When signing up, we're saving new user info into database 
 router.post('/signup', async (req, res) => {
   try {
@@ -74,6 +83,15 @@ router.post('/login', async (req, res) => {
   }
 });
 
+//GET request after first signing up
+router.get('/newuser', async (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.redirect('/');
+  }
+    const loggedIn = true;
+    res.render('dashboard', { loggedIn });
+  });
+
 
 //GET request to render words to webpage
 router.get('/dashboard', async (req, res) => {
@@ -89,6 +107,7 @@ router.get('/dashboard', async (req, res) => {
     res.json(err);
   });
     const savedWords = wordData.map((post) => post.get({ plain: true }));
+    console.log(savedWords);
     const loggedIn = true;
     res.render('dashboard', { savedWords, loggedIn });
   });
