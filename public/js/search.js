@@ -68,6 +68,7 @@ async function saveWord(event) {
     // document.location.replace(`/dashboard?email=${email}`);
     location.reload();
   } else {
+    location.reload();
     console.error('Failed to save word');
   }
 };
