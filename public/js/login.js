@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      alert('you did it');
+      // alert('you did it');
       document.location.replace(`/dashboard?email=${email}`);
       // document.location.replace('/dashboard');
     } else {
@@ -38,7 +38,7 @@ const signupFormHandler = async (event) => {
     });
     console.log(response);
     if (response.ok) {
-      alert('you did it');
+      // alert('you did it');
       // document.location.replace(`/newuser?email=${email}`);
       document.location.replace(`/login`);
     } else {
