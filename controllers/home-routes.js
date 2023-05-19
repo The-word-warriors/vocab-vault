@@ -114,7 +114,7 @@ router.post('/saved', async (req, res) => {
       word: req.body.word,
       user_email: req.body.email,
     });
-    res.status(201).json(savedWord);
+    // res.status(201).json(savedWord);
     res.render('dashboard');
     
   } catch (err) {
