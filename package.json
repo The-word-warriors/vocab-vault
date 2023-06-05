@@ -1,6 +1,10 @@
 {
   "name": "vocab-vault",
   "version": "1.0.0",
+  "engines": {
+      "node": "18.15.0",
+      "npm": "9.5.0"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
