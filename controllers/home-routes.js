@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require('../models/User');
 const Words = require('../models/Words');
 const Saved = require('../models/Saved');
+
 // Login route
 router.get('/', (req, res) => {
     // if (req.session.loggedIn) {
@@ -40,7 +41,7 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// Login
+// Login POST request that saves new user data
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
@@ -83,15 +84,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-//GET request after first signing up
-router.get('/newuser', async (req, res) => {
-  if (!req.session.loggedIn) {
-    return res.redirect('/');
-  }
-    const loggedIn = true;
-    res.render('dashboard', { loggedIn });
-  });
-
 
 //GET request to render words to webpage
 router.get('/dashboard', async (req, res) => {
@@ -122,7 +114,7 @@ router.post('/saved', async (req, res) => {
       word: req.body.word,
       user_email: req.body.email,
     });
-    res.status(201).json(savedWord);
+    // res.status(201).json(savedWord);
     res.render('dashboard');
     
   } catch (err) {
